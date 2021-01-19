@@ -1,11 +1,11 @@
-var zipCodeField = document.querySelector('#app main form input')
-var submitButton = document.querySelector('#app main form button')
-var result = document.querySelector('#result')
+const zipCodeField = document.querySelector('#app main form input')
+const submitButton = document.querySelector('#app main form button')
+const result = document.querySelector('#result')
 
 submitButton.addEventListener('click', (e) => {
   e.preventDefault();
 
-  var zipCode = zipCodeField.value
+  let zipCode = zipCodeField.value
 
   zipCode = zipCode.replace(' ', '')
   zipCode = zipCode.replace('.', '')
@@ -32,19 +32,19 @@ submitButton.addEventListener('click', (e) => {
 })
 
 function createTitle(text, color) {
-  var line = document.createElement('h1')
-  var text = document.createTextNode(text)
+  const line = document.createElement('h1')
+  const titleText = document.createTextNode(text)
 
-  line.appendChild(text)
+  line.appendChild(titleText)
   line.style.color = color
   result.appendChild(line)
 }
 
 function createLine(text) {
-  var line = document.createElement('p')
-  var text = document.createTextNode(text)
+  const line = document.createElement('p')
+  const lineText = document.createTextNode(text)
 
-  line.appendChild(text)
+  line.appendChild(lineText)
 
   result.appendChild(line)
 }
