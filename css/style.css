@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+* {
+  margin: 0;
+  font-family: 'Roboto', 'sans-serif';
+}
+
+body {
+  background: #212e3e;
+}
+
+#app main {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#app main form {
+  background: #fff;
+  height: 17vh;
+  width: 17vw;
+  border-radius: .8rem;
+  margin: 1rem 0;
+
+  min-height: 150px;
+  min-width: 200px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.5);
+}
+
+#app main form input {
+  border: none;
+  height: 2rem;
+  font-size: 1.3rem;
+  width: 120px;
+  text-align: center;
+}
+
+#app main form input:focus {
+  outline: none;
+}
+
+#app main form button {
+  width: 150px;
+  height: 35px;
+  border-radius: 16px;
+  border: none;
+  background: #b5b5b5;
+  transition: .5s;
+  cursor: pointer;
+  font-size: .9rem;
+}
+
+#app main form button:hover {
+  background: #212e3e;
+  color: #fff;
+}
+
+#app main form button:focus {
+  outline: none;
+}
+
+#result h1 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+#result p {
+  color: rgb(22, 171, 101);
+  font-size: 1rem;
+}
+
+#result p {
+  margin: .5rem 0;
+  text-align: center;
+}
