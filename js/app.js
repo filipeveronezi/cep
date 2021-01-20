@@ -2,7 +2,7 @@ const zipCodeField = document.querySelector('#app main form input')
 const submitButton = document.querySelector('#app main form button')
 const result = document.querySelector('#result')
 
-submitButton.addEventListener('click', (e) => {
+submitButton.addEventListener('click', async (e) => {
   e.preventDefault();
 
   let zipCode = zipCodeField.value
@@ -11,24 +11,22 @@ submitButton.addEventListener('click', (e) => {
   zipCode = zipCode.replace('.', '')
   zipCode = zipCode.trim()
 
-  axios
-  .get('https://viacep.com.br/ws/' + zipCode + '/json/')
-  .then((res) => {
+  try {
+    const response = await axios.get('https://viacep.com.br/ws/' + zipCode + '/json/')
 
-    if(res.data.erro) {
-      throw new Error('CEP inválido')
+    if(response.data.erro) {
+      throw new Error ('CEP inválido')
     }
-
+    
     result.innerHTML = ''
     createTitle('Endereço encontrado!', '#16ab65')
-    createLine(res.data.logradouro)
-    createLine(res.data.localidade + '-' + res.data.uf)
-    createLine(res.data.bairro)
-  })
-  .catch(() => {
+    createLine(response.data.logradouro)
+    createLine(response.data.localidade + '-' + response.data.uf)
+    createLine(response.data.bairro)
+  } catch (error) {
     result.innerHTML = ''
     createTitle('Endereço não encontrado :(', '#a71c1c')
-  })
+  }
 })
 
 function createTitle(text, color) {
